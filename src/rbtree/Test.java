@@ -12,6 +12,10 @@ public class Test {
 		for(int i=0;i<14;i++) {
 			myRbTree.insert(insertElements[i]);
 		}
+		/*myRbTree.remove(40);
+		myRbTree.remove(50);*/
+		myRbTree.remove(20);
+		myRbTree.remove(30);
 		//层序遍历按层打印该树
 		Queue<RBNode<Integer>>queue=new LinkedList<>();
 		int cur=1;//当前层需要遍历的个数
