@@ -140,8 +140,6 @@ public class RBTree<T extends Comparable<T>> {
 					p.color=1;//先变色
 					g.color=0;
 					rotateWithLeftChild(g);
-					root.color=1;//返回前置根的颜色为黑色
-					return;
 				}
 			}else if(p==g.right) {//p位于右边
 				w=g.left;
@@ -160,12 +158,12 @@ public class RBTree<T extends Comparable<T>> {
 					g.color=0;
 					p.color=1;
 					rotateWithRightChild(g);
-					root.color=1;
-					return;
 				}
 			}
-			
 		}
+		
+		//最后置root为黑色，w为红或黑都有可能结束循环
+		root.color=1;
 		
 	}
 	/**

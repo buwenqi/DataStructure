@@ -7,15 +7,16 @@ import avltree.AvlNode;
 
 public class Test {
 	public static void main(String[] args) {
-		Integer[] insertElements=new Integer[] {10,85,15,70,20,60,30,50,65,80,90,40,5,55};
+		/*Integer[] insertElements=new Integer[] {10,85,15,70,20,60,30,50,65,80,90,40,5,55};*/
+		Integer[] insertElements=new Integer[] {10,8,11,7};
 		RBTree<Integer> myRbTree=new RBTree<>();
-		for(int i=0;i<14;i++) {
+		for(int i=0;i<4;i++) {
 			myRbTree.insert(insertElements[i]);
 		}
 		/*myRbTree.remove(40);
-		myRbTree.remove(50);*/
+		myRbTree.remove(50);
 		myRbTree.remove(20);
-		myRbTree.remove(30);
+		myRbTree.remove(30);*/
 		//层序遍历按层打印该树
 		Queue<RBNode<Integer>>queue=new LinkedList<>();
 		int cur=1;//当前层需要遍历的个数
