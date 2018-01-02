@@ -161,10 +161,8 @@ public class RBTree<T extends Comparable<T>> {
 				}
 			}
 		}
-		
 		//最后置root为黑色，w为红或黑都有可能结束循环
 		root.color=1;
-		
 	}
 	/**
 	 * 寻找一个节点左子树的最小值
@@ -223,14 +221,9 @@ public class RBTree<T extends Comparable<T>> {
 				RBNode<T> minNode=findRightMin(cur);
 				cur.element=minNode.element;
 				deleteColor=minNode.color;
-				//这时候可以执行删除minNode
-				if(minNode.left==nullNode) {
-					balanceNode=minNode.right;
-					transplant(minNode,minNode.right);
-				}else {//minNode右子树为空
-					balanceNode=minNode.left;
-					transplant(minNode,minNode.left);
-				}
+				//这时候可以执行删除minNode，其必没有左孩子，可以直接用右孩子代替
+				balanceNode=minNode.right;
+				transplant(minNode,minNode.right);
 			}
 			
 			//删除完毕，开始执行调整被删除节点的
@@ -289,7 +282,6 @@ public class RBTree<T extends Comparable<T>> {
 						rotateWithRightChild(p);
 						//调整结束,最后将根节点调为黑色
 						balanceNode=root;
-						break;
 					}
 				}
 				
@@ -319,7 +311,6 @@ public class RBTree<T extends Comparable<T>> {
 						w.left.color=1;
 						rotateWithLeftChild(p);
 						balanceNode=root;
-						break;
 					}
 				}
 			}
