@@ -1,24 +1,29 @@
 package dijstra;
 
 public class Graph {
-	
+
 	private int arc[][];
 	private String vex[];
 	private int vexnum;
-	
-	public Graph() {}
-	
+
+	public Graph() {
+	}
+
 	public Graph(int vexnum, String vex[]) {
-		this.vexnum=vexnum;
-		arc=new int[vexnum][vexnum];
-		for(int i=0;i<vexnum;i++)
-			for(int j=0;j<vexnum;j++)
-				arc[i][j]=-1;//没有边定义
-		
-		if(vex.length<vexnum) {
+		this.vexnum = vexnum;
+		arc = new int[vexnum][vexnum];
+		for (int i = 0; i < vexnum; i++)
+			for (int j = 0; j < vexnum; j++) {
+				if (i == j)
+					arc[i][j] = 0;
+				else
+					arc[i][j] = -1;// 没有边定义
+			}
+
+		if (vex.length < vexnum) {
 			System.out.println("顶点数量小于顶点数");
-		}else {
-			this.vex=vex;
+		} else {
+			this.vex = vex;
 		}
 	}
 
@@ -45,8 +50,5 @@ public class Graph {
 	public void setVexnum(int vexnum) {
 		this.vexnum = vexnum;
 	}
-	
-	
-	
 
 }
